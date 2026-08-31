@@ -130,5 +130,36 @@ fun main() {
         else -> println("N/A")
 
     }
+        //Tracy Karuga
+    // Print the months from 1 to 12
+    for (month in 1..12) {
+        println(month)
+    }
+    // Check every second month, starting from month 1
+    for (month in 1..12 step 2) {
+        println("Checking payment history for month $month")
+    }
+    // Count down from 5 to 1
+    for (month in 5 downTo 1) {
+        println(month)
+    }
+    // Create a list of tenants and print them with numbers
+    val tenants = listOf("Jane", "Brian", "Mary", "David")
+    for ((index, tenant) in tenants.withIndex()) {
+        println("${index + 1}. $tenant")
+    }
+    // vacantHouses is 0, so the while loop will not run
+    val vacantHouses = 0
+    while (vacantHouses > 0) {
+        println("Checking vacant houses...")
+    }
+    // do-while runs at least once before checking the condition
+    do {
+        println("Checking vacant houses...")
+    } while (vacantHouses > 0)
+    // Repeat the reminder three times
+    repeat(3) {
+        println("Please pay your rent.")
+    }
 }
 
