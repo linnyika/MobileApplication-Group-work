@@ -15,4 +15,23 @@ fun main() {
     amountPaid = amountPaid + 5000
     println("Amount paid after: $amountPaid")
 
+    //Derrick Tuta
+    val block: Char = 'A'
+    val isActive: Boolean = true
+    val rentAsDouble: Double = monthlyRent.toDouble()
+    val registrationNumber: Long = 999_999_999L
+    println(registrationNumber)
+    println(name + " lives in house " + houseNumber)
+    println("$name lives in house $houseNumber")
+    println("Total rent for 6 months: KES ${monthlyRent * 6}")
+    println("""
+    ===== RENT RECEIPT =====
+    Tenant: $name
+    House: $houseNumber
+    Paid: KES $amountPaid
+""".trimIndent())
+    val greeting = "Dear Tenant"
+    greeting.uppercase()
+    println(greeting)
+
 }
