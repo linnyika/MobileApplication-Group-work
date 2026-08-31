@@ -1,4 +1,12 @@
 fun main() {
+
+    //131805 - Abasa Emmanuel
+    //191329 - Linda Nyika
+    //190433 - Grace Mungai
+    //193344 - Joy Gitau
+    //172066 - Tracy Karuga
+    //191733 - Derrick Mangeli
+
     println("Welcome to the Tenant Management System")
 
     val tenantId = 1001 //the tenant id does not change
@@ -161,5 +169,80 @@ fun main() {
     repeat(3) {
         println("Please pay your rent.")
     }
+
+    val tenantList = listOf(
+        "Jane Wanjiku",
+        "Brian Otieno",
+        "Mary Achieng",
+        "John Kamau"
+    )
+
+    println(tenantList.first())
+    println(tenantList[tenantList.size - 1])
+
+    val mutableTenantList = tenantList.toMutableList()
+    mutableTenantList.add("David Mwangi")
+    mutableTenantList.remove("Brian Otieno")
+
+    println(mutableTenantList)
+    println("Size: ${mutableTenantList.size}")
+
+    val houseNumbers = arrayOf("A-101", "A-102", "A-103", "A-104")
+
+    println(houseNumbers[1])
+
+    houseNumbers[0] = "A-201"
+    println(houseNumbers.joinToString())
+
+    println(houseNumbers)
+    println(houseNumbers.contentToString())
+    println(houseNumbers.joinToString())
+
+    val blockA = intArrayOf(1, 2, 3)
+    val blockB = intArrayOf(4, 5, 6)
+
+    val combined = blockA + blockB
+    println(combined.joinToString())
+
+    val swapped = blockB + blockA
+    println(swapped.joinToString())
+
+    // A MutableList can add and remove elements, while an Array has a fixed size.
+    // An Array can change an element, while a read-only List cannot.
+
+    //Part 8
+    //Task 8.1
+    //val tenantEmail: String = null
+    //Error: Null cannot be a value of a non-null type string
+    //Add '?' after String
+
+    //Task 8.2
+    var tenantEmail: String? = null
+    println(tenantEmail)
+    //you would not show the output to a property manager. Printing null looks unprofessional and confusing
+
+    //Task 8.3
+    println("Email: ${tenantEmail ?: "Not provided"}")
+    tenantEmail = "jane@example.com"
+    println("Email: ${tenantEmail ?: "Not provided"}")
+
+    //Task 8.4
+    tenantEmail = null
+    println(tenantEmail?.length) //outputs null
+    println(tenantEmail?.length ?: 0) //outputs 0
+    //println(tenantEmail!!.length) //throws exception
+
+    //the third line uses a Not-Null Assertion Operator (!!) and it unwraps a nullable variable throwing a NullPointerException if it is null
+    //It is used when you are 100% certain a variable cannot be null at runtime
+
+    //Task 8.5
+    val nextOfKin: String? = null
+    // val nextOfKin: String? = "John Doe" //Has value
+
+    val nextOfKinDisplay = nextOfKin?.uppercase() ?: "No next of kin on record"
+    println(nextOfKinDisplay)
+
+
+
 }
 
