@@ -161,5 +161,46 @@ fun main() {
     repeat(3) {
         println("Please pay your rent.")
     }
+    kotlin
+    val tenantList = listOf(
+        "Jane Wanjiku",
+        "Brian Otieno",
+        "Mary Achieng",
+        "John Kamau"
+    )
+
+    println(tenantList.first())
+    println(tenantList[tenantList.size - 1])
+
+    val mutableTenantList = tenantList.toMutableList()
+    mutableTenantList.add("David Mwangi")
+    mutableTenantList.remove("Brian Otieno")
+
+    println(mutableTenantList)
+    println("Size: ${mutableTenantList.size}")
+
+    val houseNumbers = arrayOf("A-101", "A-102", "A-103", "A-104")
+
+    println(houseNumbers[1])
+
+    houseNumbers[0] = "A-201"
+    println(houseNumbers.joinToString())
+
+    println(houseNumbers)
+    println(houseNumbers.contentToString())
+    println(houseNumbers.joinToString())
+
+    val blockA = intArrayOf(1, 2, 3)
+    val blockB = intArrayOf(4, 5, 6)
+
+    val combined = blockA + blockB
+    println(combined.joinToString())
+
+    val swapped = blockB + blockA
+    println(swapped.joinToString())
+
+    // A MutableList can add and remove elements, while an Array has a fixed size.
+    // An Array can change an element, while a read-only List cannot.
+
 }
 
