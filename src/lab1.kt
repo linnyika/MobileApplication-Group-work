@@ -14,15 +14,14 @@ fun main() {
     println("----------------------------------------")
     println("Welcome to Kupangwa!")
     // variables and inputs
-    val groupName = readln()
     print("Enter group name: ")
+    val groupName = readln()
+    print("Enter organiser name: ")
     val organiser = readln() ?: ""
-    print("Enter organiser name: ")
+
     val totalMembers = 4
-    print("Enter organiser name: ")
     val members = mutableListOf<String>()
     members.add(organiser)
-    println("Enter group members' first names:")
     for (index in 2..totalMembers) {
         print("Enter name of member $index: ")
         val member = readln()
