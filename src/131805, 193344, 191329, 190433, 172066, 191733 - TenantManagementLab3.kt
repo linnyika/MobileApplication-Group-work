@@ -7,8 +7,14 @@ class Tenant(
     var isPaid: Boolean = false
 
     //task 3 - custom setter
+    //task 4 - custom getter
     //use backing field (field) to store the actual rent value safely
     var rentAmount: Double = initialRentAmount
+        get() {
+            //task 4 - getter runs every time the property is READ (accessed)
+            println("Rent amount accessed.")
+            return field
+        }
         set(value) {
             //task 3 - validation logic inside setter
             if (value >= 0) {
@@ -21,6 +27,25 @@ class Tenant(
     fun payRent() {
         isPaid = true
         println("Rent has been paid successfully by $name")
+    }
+}
+
+//task 5 - Apartment class, introduces composition (an Apartment is made up of Tenants)
+class Apartment(
+    val apartmentNumber: Int,
+    val tenants: MutableList<Tenant> = mutableListOf()
+) {
+    //task 5 - function to add a tenant to this apartment
+    fun addTenant(tenant: Tenant) {
+        tenants.add(tenant)
+    }
+
+    //task 5 - function to list all tenants in this apartment
+    fun listTenants() {
+        println("Tenants in Apartment $apartmentNumber:")
+        for (tenant in tenants) {
+            println("- ${tenant.name}, Paid: ${tenant.isPaid}")
+        }
     }
 }
 
@@ -70,4 +95,21 @@ fun main() {
     data validation prevent impossible data, like negatives, from entering
     the system
      */
+
+    //task 4
+    println("/n---task 4 tests---")
+    println(tenant3.rentAmount) // triggers the getter, prints "Rent amount accessed." before showing the value
+
+    //TASK 4 COMMENT
+    /*The getter is executed every time the property is read/accessed, e.g. println(tenant.rentAmount).
+    The setter is executed every time a new value is assigned to the property, e.g. tenant.rentAmount = 5000.0.
+    Getting a property retrieves its current value; setting a property changes/stores a new value.
+     */
+
+    //task 5
+    println("/n---task 5 tests---")
+    val apartmentA = Apartment(101)
+    apartmentA.addTenant(tenant1)
+    apartmentA.addTenant(tenant2)
+    apartmentA.listTenants()
 }
