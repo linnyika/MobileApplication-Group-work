@@ -35,7 +35,7 @@ class Apartment(
     val apartmentNumber: Int,
     val tenants: MutableList<Tenant> = mutableListOf()
 ) {
-    //task 5 - function to add a tenant to this apartment
+    //task 5/6 - function to add a tenant to this apartment
     fun addTenant(tenant: Tenant) {
         tenants.add(tenant)
     }
@@ -45,6 +45,18 @@ class Apartment(
         println("Tenants in Apartment $apartmentNumber:")
         for (tenant in tenants) {
             println("- ${tenant.name}, Paid: ${tenant.isPaid}")
+        }
+    }
+
+    //task 7 - function to display detailed info for every tenant in this apartment
+    fun showTenants() {
+        println("Apartment: $apartmentNumber")
+        println()
+        for (tenant in tenants) {
+            println("Tenant: ${tenant.name}")
+            println("Rent: ${tenant.rentAmount}")
+            println("Rent paid: ${tenant.isPaid}")
+            println()
         }
     }
 }
@@ -112,4 +124,21 @@ fun main() {
     apartmentA.addTenant(tenant1)
     apartmentA.addTenant(tenant2)
     apartmentA.listTenants()
+
+    //TASK 5/6 COMMENT
+    /*Saying an Apartment "has" Tenant objects means the Apartment holds references to Tenant
+    objects inside its tenants list (composition), rather than being a Tenant itself. The Apartment
+    manages and organises a collection of separate Tenant objects without inheriting their behaviour.
+     */
+
+    //task 6
+    println("/n---task 6 tests---")
+    println("Tenants stored in apartment ${apartmentA.apartmentNumber}: ${apartmentA.tenants.size}")
+    for (t in apartmentA.tenants) {
+        println("- ${t.name}")
+    }
+
+    //task 7
+    println("/n---task 7 tests---")
+    apartmentA.showTenants()
 }
